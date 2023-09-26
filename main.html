@@ -41,7 +41,8 @@ body{
     var hrs = today.getHours();
     var dayOfWeek = weekday[today.getDay()];
     var date = dayOfWeek+" " + today.getDate() + "/" +(today.getMonth()+1) +'/'+today.getFullYear()  ;
-
+    var timeNow = Date.now();
+    
     var greet;
 
     if (hrs < 12)
@@ -53,6 +54,6 @@ body{
 
     document.getElementById('lbl').innerHTML =
         greet+=`<div id="date"> It's ${date}</div>`;
-        greet+=`<div id="date"> It's ${date}</div>`;
+        greet+=`<div id="time">${timeNow}</div>`;
 </script> 
 </html>
