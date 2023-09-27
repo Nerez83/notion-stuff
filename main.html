@@ -37,10 +37,16 @@ body{
     weekday[5] = "Friday";
     weekday[6] = "Saturday";
 
+    function addZero(minutes){
+        if (minutes<10){
+            return "0" + minutes;
+        } 
+        return minutes;
+    };
     
     var today = new Date();
     var hrs = today.getHours();
-    var mnts = today.getMinutes();
+    var mnts = addZero(today.getMinutes());
     var dayOfWeek = weekday[today.getDay()];
     var date = dayOfWeek+" " + today.getDate() + "/" +(today.getMonth()+1) +'/'+today.getFullYear()  ;
     var timeNow = hrs +":"+ mnts;
