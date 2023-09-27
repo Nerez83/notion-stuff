@@ -41,7 +41,9 @@ body{
     var hrs = today.getHours();
     var dayOfWeek = weekday[today.getDay()];
     var date = dayOfWeek+" " + today.getDate() + "/" +(today.getMonth()+1) +'/'+today.getFullYear()  ;
-    var timeNow = Date.now();
+    var minutesNow = Math.round(Date.now()/60000);
+    var hoursNow = Math.round(Date.now()/360000);
+    var timeNow = hoursNow +":"+ minutesNow;
     
     var greet;
 
@@ -53,6 +55,6 @@ body{
         greet = 'Good Evening  ';
 
     document.getElementById('lbl').innerHTML =
-        greet+=`<div id="date"> It's ${date}</div><div id="time">${timeNow}</div>`;
+        greet+=`<div id="date"> It's ${date}</div><div id="time">${timeNow}</div><div id="urMom">ur mom gay</div>`;
 </script> 
 </html>
