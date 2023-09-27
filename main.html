@@ -39,11 +39,10 @@ body{
     
     var today = new Date();
     var hrs = today.getHours();
+    var mnts = today.getMinutes();
     var dayOfWeek = weekday[today.getDay()];
     var date = dayOfWeek+" " + today.getDate() + "/" +(today.getMonth()+1) +'/'+today.getFullYear()  ;
-    var minutesNow = Math.round(Date.now()/60000);
-    var hoursNow = Math.round(Date.now()/360000);
-    var timeNow = hoursNow +":"+ minutesNow;
+    var timeNow = hrs +":"+ mnts;
     
     var greet;
 
