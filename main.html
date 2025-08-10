@@ -1,6 +1,6 @@
-<html> 
+<html>
 <head>
-    <title>Greeting Message</title> 
+    <title>Greeting Message</title>
     <style>
 #lbl {
     font-family: monospace;
@@ -18,6 +18,23 @@
 #date{
     font-size:large;
 }
+#bitches{
+    font-size:small;
+}
+.crop{
+    width: 80px;
+    height: 90px;
+    overflow: hidden;
+    display: block;
+    margin: auto;
+
+}
+.crop img {
+    display: flex;
+    width: 160px;
+    height: 90px;
+    margin: 0 -40px 0 -40px;
+}
 body{
     background-color: aliceblue;
 }
@@ -28,6 +45,18 @@ body{
 </body>
 
 <script>
+
+    function showPic(){
+    document.getElementById("bitchesPic").style.visibility = "visible";
+    document.getElementById("bitchesTxt").remove()
+    }
+    function hidePic(){
+    document.getElementById("bitches").innerHTML = `<div id="bitchesTxt" onclick="showPic()" style="visibility: visible;"> And you still have...</div>
+            <div class="crop">
+                <img id="bitchesPic"  src="https://i.kym-cdn.com/entries/icons/original/000/039/393/cover2.jpg" style="visibility: hidden;" onclick="hidePic()">
+            </div>`
+    }
+
     var weekday = new Array(7);
     weekday[0] = "Sunday";
     weekday[1] = "Monday";
@@ -40,17 +69,17 @@ body{
     function addZero(minutes){
         if (minutes<10){
             return "0" + minutes;
-        } 
+        }
         return minutes;
     };
-    
+
     var today = new Date();
     var hrs = today.getHours();
     var mnts = addZero(today.getMinutes());
     var dayOfWeek = weekday[today.getDay()];
     var date = dayOfWeek+" " + today.getDate() + "/" +(today.getMonth()+1) +'/'+today.getFullYear()  ;
     var timeNow = hrs +":"+ mnts;
-    
+
     var greet;
 
     if (hrs < 12)
@@ -61,6 +90,12 @@ body{
         greet = 'Good Evening  ';
 
     document.getElementById('lbl').innerHTML =
-        greet+=`<div id="date"> It's ${date}</div><div id="time">${timeNow}</div>`;
-</script> 
-</html>
+        greet+=`<div id="date"> It's ${date}</div><div id="time">${timeNow}</div>
+        <div id="bitches">
+            <div id="bitchesTxt" onclick="showPic()" style="visibility: visible;"> And you still have...</div>
+            <div class="crop">
+                <img id="bitchesPic"  src="https://i.kym-cdn.com/entries/icons/original/000/039/393/cover2.jpg" style="visibility: hidden;" onclick="hidePic()">
+            </div>
+        </div>`;
+</script>
+</html>s
